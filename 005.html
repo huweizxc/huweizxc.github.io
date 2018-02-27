@@ -34,7 +34,7 @@
 
 			oBtn.onclick = function(){
 				j=j+1
-				for(var i=0+10*j-10 ; i<10*j; i++) {
+				for(var i=0+100*j-100 ; i<100*j; i++) {
 					str += "<li style='background:" + aColor[i%10] + "'>"  + i + "</li>";
 				}
 			oList.innerHTML = str;
@@ -43,7 +43,7 @@
 	</script>
 </head>
 <body>
-	<input id="btn" type="button" value="自动生成10个li" />
+	<input id="btn" type="button" value="自动生成100个li" />
 	<ul id="list"></ul>
 </body>
 </html>
