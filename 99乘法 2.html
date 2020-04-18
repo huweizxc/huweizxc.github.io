@@ -1,75 +1,560 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>乘法口诀表</title>
-			<style>
-				table{
-					width: 821px;
-					height: 421px;
-					//border-collapse:collapse ;
-					margin: 0 auto;
-				}
-				table th{
-					//width: 85px;
-					height: 40px;
-					border: 1px solid black;
-					margin: 0;
-				}
-				body{
-					text-align: center;
-					
-				}
-				/*h1{
-					width: 800px;
-					margin: 20px auto;
-					text-align: center;
-					color: #666;
-					font-family: "宋体", Verdana, sans-serif, "宋体";
-				}*/
-			</style>
-			<script>
-				window.onload = function(){
-	
-				var oBtn = document.getElementById('btn');
-				var oUl = document.getElementById('list');
-				 
-				var str='';
-				var i=0;
-				
-				oBtn.onclick=function(){
-					// str += ("<table>")
-					i=i+1
-					if(i>9){
-						alert('别点了，真的没有了')
-						i='o';
-					}
-					str+= ("<tr>")
-					for (var j=1;j<=i;j++){
-						str += "<th>"+j +"*"+ i+"="+ i*j + "</th>";
-					}str +=("</tr>")
-				//str += ("</table>")
-				oUl.innerHTML=str;
-				
-				//alert( str)
-				}
-	//			var str='';
-	//			str += ("<h1>九九乘法口诀表</h1>")
-	//			str += ("<table>")
-	//			for (var i=1;i<=9;i++){
-	//				str+= ("<tr>")
-	//				for (var j=1;j<=i;j++){
-	//					str += "<th>"+i +"*"+ j+"="+ i*j + "</th>";
-	//				}str +=("</tr>")
-	//			}
-	//			str += ("</table>")
-				
-			}
-		</script>
-	</head>
-
-	<body>
-		<input id="btn" type="button" value="自动生成乘法口诀表" />
-		<table id="list"></table>
-	</body>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>婷婷生日快乐</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clearfix {
+  overflow: hidden;
+  clear: both;
+  zoom: 1;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+ul, li, ol {
+  list-style: none;
+}
+.bodyH {
+  width: 225px;
+  height: 365px;
+  border: 5px solid #000;
+  border-radius: 100px;
+  margin: 100px auto;
+  background: #F9D946;
+  position: relative;
+}
+.trousers {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  bottom: 0;
+  overflow: hidden;
+  border-radius: 0 0 95px 95px;
+}
+.trousers .one {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  border-top: 5px solid #000;
+  background: #2074A0;
+}
+.trousers .two {
+  width: 150px;
+  height: 55px;
+  border: 5px solid #000;
+  border-bottom-color: #2074A0;
+  position: absolute;
+  background: #2074A0;
+  bottom: 95px;
+  left: 33px;
+}
+.trousers .three {
+  position: absolute;
+  width: 70px;
+  height: 56px;
+  border-radius: 0 0 30px 30px;
+  border: 5px solid #000;
+  bottom: 60px;
+  left: 73px;
+}
+.trousers .lineL, .trousers .lineR {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  border-bottom: 5px solid #000;
+  border-right: 5px solid #000;
+  border-radius: 0 0 30px 0;
+}
+.trousers .lineR {
+  left: auto;
+  right: 0px;
+  border-bottom: 5px solid #000;
+  border-right: 0;
+  border-left: 5px solid #000;
+  border-radius: 0 0 0 30px;
+}
+.trousers .lineC {
+  display: inline-block;
+  width: 5px;
+  height: 35px;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.trousers .beidai {
+  position: absolute;
+  width: 225px;
+  height: 100px;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+}
+.trousers .beidaiL, .trousers .beidaiR {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 100px;
+  background: #2074A0;
+  border: 3px solid #000;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  top: -13px;
+  left: 10px;
+}
+.trousers .beidaiR {
+  left: auto;
+  right: 22px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  top: -12px;
+}
+.trousers .beidaiL:before, .trousers .beidaiR:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #000;
+  bottom: 5px;
+  left: 5px;
+}
+.eyes {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 50px;
+  padding-left: 15px;
+}
+.eyeL, .eyeR {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 50%;
+  position: relative;
+}
+.eyeL span, .eyeR span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border-radius: 50%;
+  background: #000;
+  left: 20px;
+  bottom: 10px;
+}
+.eyeL span i, .eyeR span i {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-block;
+  position: absolute;
+  bottom: 7px;
+  left: 10px;
+}
+.eyeL:after, .eyeR:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  background: #000;
+  left: -21px;
+  top: 36px;
+  -webkit-transform: skewX(-4deg) rotate(7deg);
+  -moz-transform: skewX(-4deg) rotate(7deg);
+}
+.eyeR:after {
+  left: auto;
+  right: -26px;
+  -webkit-transform: skewX(3deg) rotate(-7deg);
+  -moz-transform: skewX(3deg) rotate(-7deg);
+  width: 25px;
+}
+.eyeL span, .eyeR span {
+  animation: myEyes 3s ease-in-out infinite;
+  -webkit-animation: myEyes 3s ease-in-out infinite;
+  -moz-animation: myEyes 2s3s ease-in-out infinite;
+  -o-animation: myEyes 3s ease-in-out infinite;
+}
+@keyframes myEyes {
+  0% {}
+  25% {
+    left: 10px;
+  }
+  50% {
+    left: 20px;
+  }
+  75% {
+    left: 30px;
+  }
+  100% {
+    left: 20px;
+  }
+}
+@-webkit-keyframes myEyes {
+  0% {}
+  25% {
+    left: 10px;
+  }
+  50% {
+    left: 20px;
+  }
+  75% {
+    left: 30px;
+  }
+  100% {
+    left: 20px;
+  }
+}
+@-moz-keyframes myEyes {
+  0% {}
+  25% {
+    left: 10px;
+  }
+  50% {
+    left: 20px;
+  }
+  75% {
+    left: 30px;
+  }
+  100% {
+    left: 20px;
+  }
+}
+@-o-keyframes myEyes {
+  0% {}
+  25% {
+    left: 10px;
+  }
+  50% {
+    left: 20px;
+  }
+  75% {
+    left: 30px;
+  }
+  100% {
+    left: 20px;
+  }
+}
+.eyeL span i, .eyeR span i {
+  animation: eyeball 3s ease-in-out infinite;
+  -webkit-animation: eyeball 3s ease-in-out infinite;
+  -moz-animation: eyeball 3s ease-in-out infinite;
+  -o-animation: eyeball 3s ease-in-out infinite;
+}
+@keyframes eyeball {
+  0% {}
+  25% {
+    bottom: 4px;
+    left: 5px;
+  }
+  50% {}
+  75% {
+    bottom: 13px;
+    left: 15px;
+  }
+  100% {}
+}
+@-webkit-keyframes eyeball {
+  0% {}
+  25% {
+    bottom: 4px;
+    left: 5px;
+  }
+  50% {
+    bottom: 7px;
+    left: 10px;
+  }
+  75% {
+    bottom: 13px;
+    left: 15px;
+  }
+  100% {}
+}
+  
+.mouth {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  border-bottom: 3px solid #000;
+  border-right: 3px solid #000;
+  top: 137px;
+  left: 90px;
+  background: #fff;
+  border-radius: 15px 0 15px 0;
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  overflow: hidden;
+}
+.mouth .layer {
+  width: 70px;
+  height: 44px;
+  border-bottom: 3px solid #000;
+  background: #f00;
+  position: absolute;
+  left: -28px;
+  bottom: 17px;
+  -webkit-transform: rotate(-50deg);
+  -moz-transform: rotate(-50deg);
+  background: #F9D946;
+}
+.foot {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  bottom: -78px;
+  left: 50%;
+  margin-left: -100px;
+  padding-left: 17px;
+  z-index: -1;
+}
+.foot .c {
+  width: 40px;
+  height: 80px;
+  border-radius: 5px;
+  background: #000;
+  position: absolute;
+  overflow: auto;
+  right: 0;
+}
+.foot .p {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  border-radius: 30px 0 5px 15px;
+  right: 0;
+  bottom: 0;
+  background: #000;
+}
+.foot .c1 {
+  right: auto;
+  left: 0;
+}
+.foot .p1 {
+  right: auto;
+  left: 0;
+  border-radius: 0 30px 15px 5px;
+}
+.footL, .footR {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin-right: 8px;
+}
+.footL {
+  animation: foot1 2s ease-in-out infinite;
+}
+.footR {
+  animation: foot2 2s ease-in-out infinite;
+}
+@keyframes foot1 {
+  0%,100% {}
+  50% {
+    transform: rotateY(50deg) rotateZ(-20deg);
+  }
+}
+@keyframes foot2 {
+  0%,100% {
+    transform: rotateY(-50deg) rotateZ(20deg);
+  }
+  50% {
+    transform: rotateY(0deg) rotateZ(0deg);
+  }
+}
+.shadow {
+  width: 210px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  position: absolute;
+  left: 0;
+  bottom: 14px;
+  left: -5px;
+}
+.hands {}
+.hands .handL, .hands .handR {
+  width: 80px;
+  height: 80px;
+  background: #F9D946;
+  border: 5px solid #000;
+  border-radius: 25px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  left: -32px;
+  top: 187px;
+  position: absolute;
+  z-index: -1;
+  animation: gb 1s ease-in-out infinite;
+  -webkit-animation: gb 1s ease-in-out infinite;
+  -moz-animation: gb 1s ease-in-out infinite;
+  -o-animation: gb 1s ease-in-out infinite;
+}
+@keyframes gb {
+  0%,49%,100% {}
+  50% {
+    transform: rotate(35deg);
+  }
+}
+.hands .handR {
+  left: auto;
+  right: -32px;
+}
+.hands .handL:before, .hands .handR:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 15px;
+  background: #000;
+  border-radius: 30px;
+  transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  z-index: 1;
+  left: 20px;
+  top: 37px;
+}
+.hands .handR:before {
+  left: auto;
+  right: 20px;
+  top: 20px;
+  transform: rotate(-84deg);
+  -webkit-transform: rotate(-84deg);
+  -moz-transform: rotate(-84deg);
+}
+.hair1, .hair2 {
+  width: 150px;
+  height: 120px;
+  border-radius: 100px;
+  border-top: 10px solid #000;
+  position: absolute;
+  top: -14px;
+  left: 0px;
+  transform: rotate(33deg);
+  -webkit-transform: rotate(33deg);
+  -moz-transform: rotate(33deg);
+  -o-transform: rotate(33deg);
+  z-index: -1;
+}
+.hair2 {
+  width: 100px;
+  height: 150px;
+  left: 10px;
+}
+.hair1 {
+  animation: hair 2s ease-in-out infinite;
+  -webkit-animation: hair 2s ease-in-out infinite;
+  -moz-animation: hair 2s ease-in-out infinite;
+  -o-animation: hair 2s ease-in-out infinite;
+}
+@keyframes hair {
+  0%,25%,31%,100% {}
+  30% {
+    transform: rotate(19deg);
+    -webkit-transform: rotate(19deg);
+    -moz-transform: rotate(19deg);
+    -o-transform: rotate(19deg);
+  }
+}
+@-webkit-keyframes hair {
+  0%,25%,31%,100% {}
+  30% {
+    transform: rotate(19deg);
+    -webkit-transform: rotate(19deg);
+    -moz-transform: rotate(19deg);
+    -o-transform: rotate(19deg);
+  }
+}
+@-moz-keyframes hair {
+  0%,25%,31%,100% {}
+  30% {
+    transform: rotate(19deg);
+    -webkit-transform: rotate(19deg);
+    -moz-transform: rotate(19deg);
+    -o-transform: rotate(19deg);
+  }
+}
+@-o-keyframes hair {
+  0%,25%,31%,100% {}
+  30% {
+    transform: rotate(19deg);
+    -webkit-transform: rotate(19deg);
+    -moz-transform: rotate(19deg);
+    -o-transform: rotate(19deg);
+  }
+}
+</style>
+</head>
+<body>
+<h1 style="color:red;text-align:center;margin-top:50px">祝婷婷生日快乐</h1>
+  <div class="bodyH">
+    <div class="trousers">
+      <div class="one">
+      </div>
+      <div class="two">
+      </div>
+      <div class="three">
+      </div>
+      <span class="lineL"></span>
+      <span class="lineC"></span>
+      <span class="lineR"></span>
+      <div class="beidai">
+        <span class="beidaiL"></span>
+        <span class="beidaiR"></span>
+      </div>
+    </div>
+    <div class="eyes">
+      <div class="eyeL fl">
+        <span><i></i></span>
+      </div>
+      <div class="eyeR fl">
+        <span><i></i></span>
+      </div>
+    </div>
+    <div class="mouth">
+      <div class="layer"></div>
+    </div>
+    <div class="foot">
+      <div class="footL fl">
+        <div class="c"></div>
+        <div class="p"></div>
+      </div>
+      <div class="footR fl">
+        <div class="c c1"></div>
+        <div class="p p1"></div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+    <div class="hands">
+      <div class="handL"></div>
+      <div class="handR"></div>
+    </div>
+    <div class="hair">
+      <span class="hair1"></span>
+      <span class="hair2"></span>
+    </div>
+  </div>
+<h3 style="color:blue;text-align:center;margin-top:50px">亲爱的小屈同学，祝你20岁生日快乐，希望你不忘初心 坚持梦想，做一只永远快乐的小龙仔！未来与你一路同行。</h3>
+</body>
 </html>
+
